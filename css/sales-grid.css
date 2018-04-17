@@ -13,3 +13,13 @@ body {
     padding-top: 56px;
   }
 }
+#cart {
+	border: 1px solid #dee2e6;
+	border-radius: .25rem;
+	max-height: 393px;
+	padding: 0px;
+}
+#cart-total{
+	background-color: #dee2e6;
+	padding: 10px;
+}
