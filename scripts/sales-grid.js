@@ -2,7 +2,7 @@ var mydata = new Array;
 var cart = {}
 		
 function populateGrid() {
-	$.get('./sample-data.csv', function(data) {
+	$.get('./sample_data.csv', function(data) {
 		var head = data.split("\n");
 		for(var i = 1; i < head.length-1; i++){
 			line = head[i].split(",");
@@ -60,3 +60,4 @@ function updateCartTable(id){
 	c6.innerHTML = "=";
 	c7.innerHTML = "<b>"+total+"</b>";
 }
+
