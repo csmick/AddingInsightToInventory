@@ -1,7 +1,7 @@
 var mydata = new Array;
 			
 function populateGrid() {
-	$.get('./sample-data.csv', function(data) {
+	$.get('./sample_data.csv', function(data) {
 		var head = data.split("\n");
 		for(var i = 1; i < head.length-1; i++){
 			line = head[i].split(",");
