@@ -1,5 +1,6 @@
 var mydata = new Array;
-			
+var cart = {}
+		
 function populateGrid() {
 	$.get('./sample-data.csv', function(data) {
 		var head = data.split("\n");
@@ -24,11 +25,19 @@ function continueSetup(data){
 	var grid = $("#grid-area")
 	for(var i = 0; i < data.length-1; i++){
 		var item = data[i];
-		var html = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"addItemToCart("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail\" src=\""+item.img_src+"\"></a></div>"
-		grid.appendChild(html);
+		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"addItemToCart("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail\" src=\""+item.img_src+"\"></a></div>"
+		grid.append(new_div);
 	}
 };
 function addItemToCart(id) {
+	if(!(id in cart)) {
+		cart[id] = 1;
+	} else {
+		cart[id] = cart[id] + 1;
+	}
+	updateCartTable(id)
+}
+function updateCartTable(id){
 	var table = document.getElementById('cart-table');
 	var row = table.insertRow(-1);
 	var c1 = row.insertCell(0); //img
@@ -40,12 +49,14 @@ function addItemToCart(id) {
 	var c7 = row.insertCell(6); //total price
 	
 	var item = mydata[id];
+	var quant = cart[id];
+	var total = quant * item.unit_price;
 	
 	c1.innerHTML = "img";
 	c2.innerHTML = item.item_name;
 	c3.innerHTML = item.unit_price;
 	c4.innerHTML = "x";
-	c5.innerHTML = "5";
+	c5.innerHTML = quant;
 	c6.innerHTML = "=";
-	c7.innerHTML = "<b>$1.25</b>";
+	c7.innerHTML = "<b>"+total+"</b>";
 }
