@@ -15,38 +15,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sales-grid.css" rel="stylesheet">
-
+	
   </head>
 
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body onload="populateGrid()">
 
     <!-- Page Content -->
     <div class="container">
@@ -54,74 +26,98 @@
       <h1 class="my-4 text-center text-lg-left">Sale Session</h1>
 		
 		<div class="row text-center text-lg-left">
-		  <div class="col-lg-9 col-md-9 col-xs-8">
-			<div class="row">
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+		  <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7">
+			<div class="row" id="grid-area">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(1)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="https://staticdelivery.nexusmods.com/mods/110/images/74627-0-1459502036.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(2)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="https://oggsvenue.com/wp-content/uploads/2016/09/Kale.png" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(3)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="http://muslimobserver.com/wp-content/uploads/2015/07/photodune-2717005-lettuce-m.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(4)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="https://citizenpotato.files.wordpress.com/2011/08/potato.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(5)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="https://joshtom.files.wordpress.com/2010/07/tomato.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(6)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="http://www.pngpix.com/wp-content/uploads/2016/03/Broccoli-PNG-Image.png" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(7)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="http://blogs.kcrw.com/goodfood/wp-content/uploads/2013/01/carrots1.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(8)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="http://agliocrudo.it/wp-content/uploads/2014/03/aglio5.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
-				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				  <a onclick="addItemToCart(9)" href="#" class="d-block mb-4 h-100 produce-card">
+					<img class="img-fluid img-thumbnail produce-img" src="https://fthmb.tqn.com/9TomfdbjBFrHfr7fpfAAQtKnK9w=/2038x1471/filters:fill(auto,1)/GettyImages-183245863-5948a9235f9b58d58a920edb.jpg" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x400" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x400" alt="">
 				  </a>
 				</div>
-				<div class="col-lg-3 col-md-4 col-xs-4">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				  <a href="#" class="d-block mb-4 h-100">
-					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+					<img class="img-fluid img-thumbnail" src="http://placehold.it/400x400" alt="">
 				  </a>
 				</div>
 			  </div>
 			</div>
-			<div class="col-lg-3 col-md-3 col-xs-4" id="cart">
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5" id="cart">
 				<div id="cart-total">
 					<h3 class="text-center">$0.00</h3>
-				<div>
+				</div>
+				<div id="cart-items">
+					<table id="cart-table">
+						<tr>
+							<td>img</td>
+							<td>Apple</td>
+							<td>$0.50</td>
+							<td>x</td>
+							<td>3</td>
+							<td>=</td>
+							<td><b>$1.50</b></td>
+						</tr>
+						<tr>
+							<td>img</td>
+							<td>Kale</td>
+							<td>$1.00</td>
+							<td>x</td>
+							<td>2</td>
+							<td>=</td>
+							<td><b>$2.00</b></td>
+						</tr>
+					</table>
+				</div>
+				<div id="trashcan"></div>
+				<button onclick="populateGrid()" class="btn btn-default" id="checkout-btn">Checkout</button>
 			</div>
 		</div>
     </div>
@@ -138,6 +134,8 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+	<!-- Our Scripts -->
+	<script src="scripts/sales-grid.js"></script>
   </body>
 
 </html>
