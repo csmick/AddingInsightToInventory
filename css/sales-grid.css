@@ -16,11 +16,10 @@ body {
 .container {
 	margin-top: 0px;
 }
-.produce-card {
-	
-}
-.produce-img {
 
+.produce-img {
+	height: 100%;
+	margin-bottom: 24px;
 }
 table {
 	border-spacing: 5px;

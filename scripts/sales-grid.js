@@ -25,7 +25,7 @@ function continueSetup(data){
 	var grid = $("#grid-area")
 	for(var i = 0; i < data.length-1; i++){
 		var item = data[i];
-		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"addItemToCart("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail\" src=\""+item.img_src+"\"></a></div>"
+		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"addItemToCart("+item.id+")\" class=\"d-block mb-4 h-100 produce-img\"><img class=\"img-fluid img-thumbnail\" src=\""+item.img_src+"\"></a></div>"
 		grid.append(new_div);
 	}
 };
