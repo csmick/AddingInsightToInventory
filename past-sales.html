@@ -8,19 +8,50 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Thumbnail Gallery - Start Bootstrap Template</title>
+    <title>Past Sales</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/thumbnail-gallery.css" rel="stylesheet">
-
   </head>
 
   <body>
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
 
-    <!-- Navigation -->
+    <!-- Form code begins -->
+    <form method="post">
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="startDate">Choose Dates to View Data:</label>
+        <input class="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYY" type="text"/>
+      </div>
+      <div class="form-group"> <!-- Date input -->
+        <input class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYY" type="text"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="defaultDates">Or Choose Default Data</label>
+        <select class="form-control" name="defaultDates">
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+          <option value="season">Season</option>
+          <option value="year">Year</option>
+        </select>
+      </div>
+      <div class="form-group"> <!-- Submit button -->
+        <button class="btn btn-primary " name="go" type="submit">Go</button>
+      </div>
+     </form>
+     <!-- Form code ends --> 
+
+    </div>
+  </div>    
+ </div>
+</div>    
+<!-- Navigation -->
     <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Start Bootstrap</a>
@@ -47,7 +78,6 @@
         </div>
       </div>
     </nav>-->
-
 	<nav>
 		<div class="nav nav-tabs" id="nav-tab" role="tablist">
 			<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Summary</a>
@@ -70,7 +100,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   </body>
 
 </html>
