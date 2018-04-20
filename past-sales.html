@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/thumbnail-gallery.css" rel="stylesheet">
+	<link href="css/past-sales.css" rel="stylesheet">
   </head>
 
   <body>
@@ -25,27 +26,31 @@
 
     <!-- Form code begins -->
     <form method="post">
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="startDate">Choose Dates to View Data:</label>
-        <input class="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYY" type="text"/>
+      <div class="align">
+        <div class="form-group"> <!-- Date input -->
+          <label class="control-label" for="startDate">Choose Dates to View Data:</label>
+          <input class="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYY" type="text"/>
+        </div>
+        <div class="form-group"> <!-- Date input -->
+          <input class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYY" type="text"/>
+        </div>
       </div>
-      <div class="form-group"> <!-- Date input -->
-        <input class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYY" type="text"/>
+      <div class="align">
+        <div class="form-group">
+          <label class="control-label" for="defaultDates">Or Choose Default Data</label>
+          <select class="form-control" name="defaultDates">
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="season">Season</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
+        <div class="form-group"> <!-- Submit button -->
+          <button class="btn btn-primary " name="go" type="submit">Go</button>
+        </div>
       </div>
-      <div class="form-group">
-        <label class="control-label" for="defaultDates">Or Choose Default Data</label>
-        <select class="form-control" name="defaultDates">
-          <option value="week">Week</option>
-          <option value="month">Month</option>
-          <option value="season">Season</option>
-          <option value="year">Year</option>
-        </select>
-      </div>
-      <div class="form-group"> <!-- Submit button -->
-        <button class="btn btn-primary " name="go" type="submit">Go</button>
-      </div>
-     </form>
-     <!-- Form code ends --> 
+    </form>
+    <!-- Form code ends --> 
 
     </div>
   </div>    
