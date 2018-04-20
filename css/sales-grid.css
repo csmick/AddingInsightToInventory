@@ -5,11 +5,53 @@
  */
 
 body {
-  padding-top: 54px;
+  padding-top: 0px;
 }
 
 @media (min-width: 992px) {
   body {
-    padding-top: 56px;
+    padding-top: 0px;
   }
+}
+.container {
+	margin-top: 0px;
+}
+
+.produce-img {
+	height: 100%;
+	margin-bottom: 24px;
+}
+table {
+	border-spacing: 5px;
+	width: 100%;
+	
+}
+#cart {
+	border: 1px solid #dee2e6;
+	border-radius: .25rem;
+	max-height: 450px;
+	padding: 0px;
+}
+#cart-total {
+	background-color: #dee2e6;
+	padding: 10px;
+	height: 60px;
+}
+#cart-items {
+	height: 270px;
+}
+
+#trashcan {
+	height: 60px;
+	background-color: red;
+}
+
+#checkout-btn {
+	height: 60px;
+	width: 100%;
+	font-size: 1.75rem;
+	background-color: #dee2e6;
+	border-radius: 0rem 0rem .25rem .25rem;
+	position: relative;
+	top: 60px;
 }
