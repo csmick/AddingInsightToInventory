@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "DilleniaUPC";
+  src: url("../fonts/dillenia_upc.tff"), format("truetype");
+}
+
+body {
+    font-family: "DilleniaUPC", serif;
+}
