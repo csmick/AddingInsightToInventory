@@ -15,17 +15,17 @@
 
     <!-- Custom styles for this template -->
     <link href="css/thumbnail-gallery.css" rel="stylesheet">
-	<link href="css/past-sales.css" rel="stylesheet">
+<!--	<link href="css/past-sales.css" rel="stylesheet">-->
   </head>
 
   <body>
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
+   <div class="col-md-12 col-sm-12 col-xs-12">
 
     <!-- Form code begins -->
-    <form method="post">
+    <form method="post" class="form-inline">
       <div class="align">
         <div class="form-group"> <!-- Date input -->
           <label class="control-label" for="startDate">Choose Dates to View Data:</label>
@@ -47,8 +47,8 @@
         </div>
         <div class="form-group"> <!-- Submit button -->
           <button class="btn btn-primary " name="go" type="submit">Go</button>
-        </div>
-      </div>
+        </div> 
+     </div>
     </form>
     <!-- Form code ends --> 
 
@@ -84,7 +84,7 @@
       </div>
     </nav>-->
 	<nav>
-		<div class="nav nav-tabs" id="nav-tab" role="tablist">
+		<div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
 			<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Summary</a>
 			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Data</a>
 		</div>
