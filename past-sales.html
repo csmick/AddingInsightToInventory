@@ -20,24 +20,28 @@
 
   <body>
 <div class="bootstrap-iso">
- <div class="container-fluid">
+ <!--<div class="container-fluid">
   <div class="row">
-   <div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="col-md-12 col-sm-12 col-xs-12">-->
 
     <!-- Form code begins -->
-    <form method="post" class="form-inline">
-      <div class="align">
-        <div class="form-group"> <!-- Date input -->
+    <form method="post">
+      <div class="form-row">
+        <div class="form-group col-md-8">
           <label class="control-label" for="startDate">Choose Dates to View Data:</label>
-          <input class="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYY" type="text"/>
         </div>
-        <div class="form-group"> <!-- Date input -->
-          <input class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYY" type="text"/>
+        <div class="form-group col-md-4">
+          <label class="control-label" for="defaultDates">Or Choose Default Data:</label>
         </div>
       </div>
-      <div class="align">
-        <div class="form-group">
-          <label class="control-label" for="defaultDates">Or Choose Default Data</label>
+      <div class="form-row">
+        <div class="form-group col-md-4"> <!-- Date input -->
+          <input class="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYY" type="text"/>
+        </div>
+        <div class="form-group col col-md-4"> <!-- Date input -->
+          <input class="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYY" type="text"/>
+        </div>
+        <div class="form-group col-md-4">
           <select class="form-control" name="defaultDates">
             <option value="week">Week</option>
             <option value="month">Month</option>
@@ -45,16 +49,17 @@
             <option value="year">Year</option>
           </select>
         </div>
-        <div class="form-group"> <!-- Submit button -->
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12"> <!-- Submit button -->
           <button class="btn btn-primary " name="go" type="submit">Go</button>
-        </div> 
-     </div>
+        </div>
     </form>
     <!-- Form code ends --> 
 
-    </div>
+    <!--</div>
   </div>    
- </div>
+ </div>-->
 </div>    
 <!-- Navigation -->
     <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
