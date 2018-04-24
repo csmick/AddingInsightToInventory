@@ -25,7 +25,7 @@ function continueSetup(data){
 	var grid = $("#grid-area")
 	for(var i = 0; i < data.length-1; i++){
 		var item = data[i];
-		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"increaseItemQuant("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail produce-img\" src=\""+item.img_src+"\"><p class=\"grid-text\">"+item.name+"</p></a></div>"
+		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"increaseItemQuant("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail produce-img\" src=\""+item.img_src+"\"><p class=\"grid-text\">"+item.item_name+"</p></a></div>"
 		grid.append(new_div);
 	}
 };
@@ -58,7 +58,7 @@ function updateCartTable(id, AlreadyInCart){
 	if(AlreadyInCart) {
 		var itemRow = document.getElementById('cart-item-'+id);
 		itemRow.cells[4].innerHTML = "<input class=\"cart-quant\" type=\"number\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-up\"></span></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-down\"></span></button>";
-		itemRow.cells[6].innerHTML = "<b>$"+total.toNumber().toFixed(2)+"</b>";
+		itemRow.cells[6].innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
 		
 	} else {
 		var row = table.insertRow(-1);
@@ -72,11 +72,11 @@ function updateCartTable(id, AlreadyInCart){
 		
 		c1.innerHTML = "<img class=\"cart-item-img\" src=\""+item.img_src+"\">";
 		c2.innerHTML = item.item_name;
-		c3.innerHTML = "$"+item.unit_price.toNumber().toFixed(2);
+		c3.innerHTML = "$"+Number(item.unit_price).toFixed(2);
 		c4.innerHTML = "x";
 		c5.innerHTML = "<input class=\"cart-quant\" type=\"number\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-up\"></span></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-down\"></span></button>";
 		c6.innerHTML = "=";
-		c7.innerHTML = "<b>$"+total.toNumber().toFixed(2)+"</b>";
+		c7.innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
 		
 		var row_id = "cart-item-" + id;
 		row.id = row_id;
