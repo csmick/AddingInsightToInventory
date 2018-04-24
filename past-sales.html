@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this template -->
     <!--<link href="css/thumbnail-gallery.css" rel="stylesheet">-->
-<!--	<link href="css/past-sales.css" rel="stylesheet">-->
+    <link href="css/past-sales.css" rel="stylesheet">
   </head>
 
   <body>
@@ -95,8 +95,19 @@
 		</div>
 	</nav>
 	<div class="tab-content" id="nav-tabContent">
-		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> ... </div>
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+			<table id="salesData">
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Quantity</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody id="tBody"></tbody>
+			</table>
+		</div>
 	</div>
     <!-- Page Content -->
 

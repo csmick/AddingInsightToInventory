@@ -17,8 +17,22 @@ function populateGrid(data) {
 			mydata.push(obj);
 		}
 		console.log(mydata);
+		populateTable(mydata);
 //	});
 };
+
+//thank you stack overflow
+function populateTable(data) {
+	var html = '';
+	for(var i in data) {
+		console.log(i);
+		html +='<tr>';
+		html += '<td>'+data[i].produce_name + '</td><td>'+data[i].quantity+'</td><td>'+data[i].unit_price+'</td>';
+		html +='</tr>'; 
+	}
+	var table = document.getElementById("tBody");
+	table.innerHTML = html;
+}
 
 $.ajax({
   url:  './sample_sales.csv',
@@ -28,32 +42,8 @@ $.ajax({
                }
 }).done(populateGrid);
 
-//var tmp = {id:0, date:041918 };
-//mydata.push(tmp);
 
-//console.log(mydata);
-
-
-
-//populateGrid();
-
-/*function continueSetup(data){
-	var grid = $("#grid-area")
-	for(var i = 0; i < data.length-1; i++){
-		var item = data[i];
-		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"addItemToCart("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail produce-img\" src=\""+item.img_src+"\"></a></div>"
-		grid.append(new_div);
-	}
-};
-function addItemToCart(id) {
-	if(!(id in cart)) {
-		cart[id] = 1;
-	} else {
-		cart[id] = cart[id] + 1;
-	}
-	updateCartTable(id)
-}
-function updateCartTable(id){
+/*function updateCartTable(id){
 	var table = document.getElementById('cart-table');
 	var row = table.insertRow(-1);
 	var c1 = row.insertCell(0); //img
