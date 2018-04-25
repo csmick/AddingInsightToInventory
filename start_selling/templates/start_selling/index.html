@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,11 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static 'start_selling/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="css/app.css" rel="stylesheet">        
-        <link href="css/index.css" rel="stylesheet">        
+        <link href="{% static 'start_selling/css/app.css' %}" rel="stylesheet">        
+        <link href="{% static 'start_selling/css/index.css' %}" rel="stylesheet">        
 
         <title>Inventory Insight</title>
     </head>
@@ -19,20 +21,20 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 w-100 text-center text-sm-left">
-                        <img class="img-fluid d-none d-sm-inline" src="images/school_logo.png" alt="Good Shepherd Montessori School logo">
+                        <img class="img-fluid d-none d-sm-inline" src="{% static 'start_selling/images/school_logo.png' %}" alt="Good Shepherd Montessori School logo">
                         <h1 class="d-sm-inline">Welcome!</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 text-center">
-                        <a href="./sales-grid.html" class="text-center">
-                            <img class="rounded-circle img-fluid" src="images/dollar-sign.png" alt="">
+                        <a href="{% url 'sales' %}" class="text-center">
+                            <img class="rounded-circle img-fluid" src="{% static 'start_selling/images/dollar-sign.png' %}" alt="">
                         </a>
                         <h2>Start Selling</h3>
                     </div>
                     <div class="col-xs-12 col-sm-6 text-center">
                         <a href="./past-sales.html" class="text-center">
-                            <img class="rounded-circle img-fluid" src="images/past-sales.png" alt="">
+                            <img class="rounded-circle img-fluid" src="{% static 'start_selling/images/past-sales.png' %}" alt="">
                         </a>
                         <h2>Past Sales</h3>
                     </div>
@@ -41,8 +43,8 @@
         </div>
 
         <!-- jQuery and Bootstrap JS -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'start_selling/vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'start_selling/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 
         <!-- Custom JS -->

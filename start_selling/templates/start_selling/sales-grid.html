@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>GSMS Food Stand | Sale Session</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'start_selling/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'start_selling/css/sales-grid.css' %}" rel="stylesheet">
+	
+  </head>
+
+<body onload="populateGrid({{items}})">
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <h1 id="session-title" class="my-4 text-center text-lg-left">Sale Session</h1>
+		
+		<div class="row text-center text-lg-left">
+		    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7" id="scroll-area">
+			    <div class="row" id="grid-area">
+                   <!-- fill in with javascript --> 
+                </div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5" id="cart">
+				<div id="cart-total">
+					<h3 class="text-center">$0.00</h3>
+				</div>
+				<div id="cart-items">
+					<table id="cart-table">
+						<!-- fill in with javascript -->
+					</table>
+				</div>
+				<div id="trashcan"></div>
+				<button class="btn btn-default" id="checkout-btn">Checkout</button>
+			</div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+    </footer> -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'start_selling/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'start_selling/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+	<!-- Our Scripts -->
+	<script src="{% static 'start_selling/scripts/sales-grid.js' %}"></script>
+  </body>
+
+</html>

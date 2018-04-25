@@ -1,0 +1,97 @@
+/*!
+ * Start Bootstrap - Thumbnail Gallery (https://startbootstrap.com/template-overviews/thumbnail-gallery)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-thumbnail-gallery/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 0px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+.container {
+	margin-top: 0px;
+}
+.produce-card {
+	text-align: center;
+}
+
+.produce-img {
+	height: 175px;
+	width: 175px;
+}
+.grid-text {
+	
+}
+.cart-item-img {
+	height: 50px;
+	width: 50px;
+}
+.cart-quant {
+	width: 30px;
+}
+.up-btn {
+	height: 20px;
+	width: 35px;
+	position: relative;
+	top: -10px;
+}
+.down-btn {
+	height: 20px;
+	width: 35px;
+	position: relative;
+	top: 10px;
+	left: -35px;
+}
+.modalBtn {
+	width: 108px;
+	height: 40px;
+}
+table {
+	border-spacing: 5px;
+	width: 100%;
+	
+}
+#scroll-area {
+	overflow-y: auto;
+	direction: rtl;
+}
+#grid-area {
+	direction: ltr;
+}
+#cart {
+	border: 1px solid #dee2e6;
+	border-radius: .25rem;
+	max-height: 80vh;
+	padding: 0px;
+}
+#cart-total {
+	background-color: #dee2e6;
+	padding: 10px;
+	height: 60px;
+}
+#cart-items {
+	height: 330px;
+	overflow-y: auto;
+}
+
+#trashcan {
+	height: 60px;
+	background-color: red;
+}
+
+#checkout-btn {
+	height: 60px;
+	width: 100%;
+	font-size: 1.75rem;
+	background-color: #dee2e6;
+	border-radius: 0rem 0rem .25rem .25rem;
+}
+#food-modal {
+	direction: rtl;
+}
