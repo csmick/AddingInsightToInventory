@@ -18,6 +18,7 @@ function populateGrid(data) {
 		}
 		console.log(mydata);
 		populateTable(mydata);
+		populateGraph(mydata);
 //	});
 };
 
@@ -32,6 +33,46 @@ function populateTable(data) {
 	}
 	var table = document.getElementById("tBody");
 	table.innerHTML = html;
+}
+
+function populateGraph(data) {
+	/*var chartData[];
+	for(var i = 1; i < head.length-1; i++) {
+		line = head[i].split(",");
+		
+	}*/
+	//var chartData = getChartData(data);
+
+	var dataPoints = getChartData(data);
+
+	var chart = new CanvasJS.Chart("chartContainer",{ 
+		animationEnabled: true,
+		theme: "light2",
+		title: {
+			text: "Date"
+		},
+		axisY: {
+			title: "Quantity"
+		},
+		data: [{
+			type: "column",
+			showInLegend: false,
+			dataPoints: dataPoints
+		}]
+	});
+	chart.render();
+}
+
+function getChartData(data) {
+	var obj = [];
+	for (var i in data) {
+		obj.push({
+			label: data[i].produce_name,
+			y: parseInt(data[i].quantity)
+		});
+	}
+
+	return obj;
 }
 
 $.ajax({
