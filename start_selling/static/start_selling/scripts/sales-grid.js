@@ -1,5 +1,8 @@
 var mydata = new Array;
-var cart = {}
+var cart = new Array;
+
+
+
 
 function populateGrid(items) {
     var items = items;
@@ -22,7 +25,7 @@ function populateGrid(items) {
         }
         mydata.push(obj);
     });
-	continueSetup(mydata);
+	//continueSetup(mydata);
 };
 function continueSetup(data){
 	var grid = $("#grid-area")
@@ -91,3 +94,7 @@ function removeItemfromCart(id){
 	var i = itemRow.parentNode.parentNode.rowIndex;
 	cartTable.deleteRow(i);
 }
+
+dragula([document.getElementById("grid-area"), document.getElementById("cart-items")], {
+  copy: true
+});

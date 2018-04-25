@@ -14,8 +14,12 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'start_selling/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
+	
+	<!-- FontAwesome CDN -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	
     <!-- Custom styles for this template -->
+	<link href="{% static 'start_selling/css/app.css' %}" rel="stylesheet">
     <link href="{% static 'start_selling/css/sales-grid.css' %}" rel="stylesheet">
 	
   </head>
@@ -30,7 +34,15 @@
 		<div class="row text-center text-lg-left">
 		    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7" id="scroll-area">
 			    <div class="row" id="grid-area">
-                   <!-- fill in with javascript --> 
+                   {% for item in items %}
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							<a onclick="increaseItemQuant({{ item.pk }})" class="d-block mb-4 h-100 produce-card">
+								<img class="img-fluid img-thumbnail produce-img" src="{{ item.image }}">
+								<p class="grid-text">{{ item.name }}</p>
+							</a>
+						</div>"
+				   {% endfor %}
+				   <!-- fill in with javascript --> 
                 </div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5" id="cart">
@@ -42,7 +54,7 @@
 						<!-- fill in with javascript -->
 					</table>
 				</div>
-				<div id="trashcan"></div>
+				<div id="trashcan"><i class="far fa-trash-alt"></i></div>
 				<button class="btn btn-default" id="checkout-btn">Checkout</button>
 			</div>
         </div>
@@ -59,6 +71,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'start_selling/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'start_selling/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
 
 	<!-- Our Scripts -->
 	<script src="{% static 'start_selling/scripts/sales-grid.js' %}"></script>
