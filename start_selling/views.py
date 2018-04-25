@@ -14,7 +14,8 @@ def index(request):
 
 def sales_grid(request):
     items = Item.objects.all()
-    for item in items:
+    static_items = Item.objects.all()
+    for item in static_items:
         item.image = static(item.image.url)
-    data = {'items':serializers.serialize('json', items)}
+    data = {'qs_items':items, 'json_items':serializers.serialize('json', items)}
     return render(request, 'start_selling/sales-grid.html', context=data)

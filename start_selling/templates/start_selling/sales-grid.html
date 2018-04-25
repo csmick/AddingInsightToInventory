@@ -24,7 +24,7 @@
 	
   </head>
 
-<body onload="populateGrid({{items}})">
+<body onload="populateGrid({{json_items}})">
 
     <!-- Page Content -->
     <div class="container">
@@ -34,10 +34,10 @@
 		<div class="row text-center text-lg-left">
 		    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7" id="scroll-area">
 			    <div class="row" id="grid-area">
-                   {% for item in items %}
+                   {% for item in qs_items %}
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 							<a onclick="increaseItemQuant({{ item.pk }})" class="d-block mb-4 h-100 produce-card">
-								<img class="img-fluid img-thumbnail produce-img" src="{{ item.image }}">
+								<img class="img-fluid img-thumbnail produce-img" src="{% static item.image.url %}">
 								<p class="grid-text">{{ item.name }}</p>
 							</a>
 						</div>"
