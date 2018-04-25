@@ -18,12 +18,12 @@ body {
 	margin-top: 0px;
 }
 .produce-card {
-	height: 85% !important;
 	text-align: center;
 }
 
 .produce-img {
-	height: 100%;
+	height: 175px;
+	width: 175px;
 }
 .grid-text {
 	
@@ -48,6 +48,10 @@ body {
 	top: 10px;
 	left: -35px;
 }
+.modalBtn {
+	width: 108px;
+	height: 40px;
+}
 table {
 	border-spacing: 5px;
 	width: 100%;
@@ -56,7 +60,6 @@ table {
 #scroll-area {
 	overflow-y: auto;
 	direction: rtl;
-	max-height: 80vh;
 }
 #grid-area {
 	direction: ltr;
@@ -88,4 +91,7 @@ table {
 	font-size: 1.75rem;
 	background-color: #dee2e6;
 	border-radius: 0rem 0rem .25rem .25rem;
+}
+#food-modal {
+	direction: rtl;
 }

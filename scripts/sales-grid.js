@@ -2,6 +2,13 @@ var mydata = new Array;
 var cart = {}
 		
 function populateGrid() {
+	var title = document.getElementById("session-title");
+	var date = new Date();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+	var year = date.getFullYear();
+	var dateString = month + "/" + day + "/" + year;
+	title.innerHTML = "Sales Session " + dateString;
 	$.get('./sample_data.csv', function(data) {
 		var head = data.split("\n");
 		for(var i = 1; i < head.length-1; i++){
