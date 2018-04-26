@@ -49,7 +49,7 @@ function populateGraph(data) {
 		animationEnabled: true,
 		theme: "light2",
 		title: {
-			text: "Date"
+			text: "04/19/2018 - 04/26/2018"
 		},
 		axisY: {
 			title: "Quantity"
