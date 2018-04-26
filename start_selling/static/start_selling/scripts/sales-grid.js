@@ -1,11 +1,7 @@
-var mydata = new Array;
-var cart = new Array;
+var mydata = {};
+var cart = {};
 
-
-
-
-function populateGrid(items) {
-    var items = items;
+function displayDate() {
     var title = document.getElementById("session-title");
 	var date = new Date();
 	var month = date.getMonth() + 1;
@@ -13,6 +9,8 @@ function populateGrid(items) {
 	var year = date.getFullYear();
 	var dateString = month + "/" + day + "/" + year;
 	title.innerHTML = "Sales Session " + dateString;
+}
+function populateData(items) {
     items.forEach(function(item) {
         console.log(item)
         var obj = {
@@ -21,20 +19,32 @@ function populateGrid(items) {
             unit:item.fields.unit,
             unit_price:item.fields.unit_price,
             qty:item.fields.inventory,
-            img_src:item.fields.image,
+            img_src:"/static/"+item.fields.image,
         }
-        mydata.push(obj);
+        mydata[item.pk] = obj;
     });
-	//continueSetup(mydata);
-};
-function continueSetup(data){
-	var grid = $("#grid-area")
-	for(var i = 0; i < data.length-1; i++){
-		var item = data[i];
-		var new_div = "<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4\"><a onclick=\"increaseItemQuant("+item.id+")\" class=\"d-block mb-4 h-100 produce-card\"><img class=\"img-fluid img-thumbnail produce-img\" src=\""+item.img_src+"\"><p class=\"grid-text\">"+item.item_name+"</p></a></div>"
-		grid.append(new_div);
+	displayDate();
+}
+
+function populateModal(id) {
+	var mod = document.getElementById("detailModal");
+	var item = mydata[id];
+	var details = document.getElementById("food-details");
+	details.rows[0].cells[1].innerHTML = item.item_name;
+	details.rows[1].cells[1].innerHTML = "$"+Number(item.unit_price).toFixed(2)+" per "+item.unit;
+	var pic = document.getElementById("modal-pic")
+	pic.src = item.img_src;
+	console.log(cart);
+	console.log(id);
+	if(id in cart) {
+		details.rows[2].cells[1].innerHTML = "<input value=\""+cart[id]+"\">";
+		document.getElementById("rmBtn").classList.remove("disabled");
+	} else {
+		details.rows[2].cells[1].innerHTML = "<input value=\"0\">";
+		document.getElementById("rmBtn").classList.add("disabled");
 	}
-};
+}
+
 function increaseItemQuant(id) {
 	var AlreadyInCart;
 	if(!(id in cart)) {
@@ -46,16 +56,21 @@ function increaseItemQuant(id) {
 	}
 	updateCartTable(id, AlreadyInCart)
 }
+
 function decreaseItemQuant(id) {
-	if(cart[id] > 2) {
-		cart[id] = cart[id] - 1;
-		updateCartTable(id, true)
-	}
-	//if removing an element causes the quantity to be zero, remove the item from the cart
-	else {
-		removeItemfromCart(id);
-	}	
+	cart[id] = cart[id] - 1;
+	updateCartTable(id, true);
 }
+
+function updateCartTable2(id, AlreadyInCart) {
+	var table = document.getElementById('cart-table');
+	var item = mydata[id];
+	var quant = cart[id];
+	if(AlreadyInCart) {
+		console.log(item);
+	}
+}
+
 function updateCartTable(id, AlreadyInCart){
 	var table = document.getElementById('cart-table');
 	var item = mydata[id];
@@ -63,7 +78,7 @@ function updateCartTable(id, AlreadyInCart){
 	var total = quant * item.unit_price;
 	if(AlreadyInCart) {
 		var itemRow = document.getElementById('cart-item-'+id);
-		itemRow.cells[4].innerHTML = "<input class=\"cart-quant\" type=\"number\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-up\"></span></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-down\"></span></button>";
+		itemRow.cells[4].innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><i class=\"fas fa-angle-down\"></i></button>";
 		itemRow.cells[6].innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
 		
 	} else {
@@ -80,7 +95,7 @@ function updateCartTable(id, AlreadyInCart){
 		c2.innerHTML = item.item_name;
 		c3.innerHTML = "$"+Number(item.unit_price).toFixed(2);
 		c4.innerHTML = "x";
-		c5.innerHTML = "<input class=\"cart-quant\" type=\"number\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-up\"></span></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><span class=\"glyphicon glyphicon-chevron-down\"></span></button>";
+		c5.innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><i class=\"fas fa-angle-down\"></i></button>";
 		c6.innerHTML = "=";
 		c7.innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
 		

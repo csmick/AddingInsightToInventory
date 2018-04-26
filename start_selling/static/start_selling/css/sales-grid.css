@@ -24,9 +24,11 @@ body {
 .produce-img {
 	height: 175px;
 	width: 175px;
+	cursor: pointer;
 }
 .grid-text {
-	
+	position: relative;
+	top: -25px;
 }
 .cart-item-img {
 	height: 50px;
@@ -34,12 +36,25 @@ body {
 }
 .cart-quant {
 	width: 30px;
+	height: 40px;
+	position: relative;
+	top: 2px;
+	left: 1px;
+	padding-left: 5px;
+	border-top-left-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+	border: 1px solid black;
 }
 .up-btn {
-	height: 20px;
+	height: 22px;
 	width: 35px;
 	position: relative;
-	top: -10px;
+	top: -9px;
+	border: 1px solid black;
+	border-radius: 0px;
+	padding-top: 0px;
+	padding-left: 10px;
+	border-top-right-radius: .25rem;
 }
 .down-btn {
 	height: 20px;
@@ -47,10 +62,24 @@ body {
 	position: relative;
 	top: 10px;
 	left: -35px;
+	border: 1px solid black;
+	border-radius: 0px;
+	padding-top: 0px;
+	padding-left: 10px;
+	border-bottom-right-radius: .25rem;
 }
 .modalBtn {
 	width: 108px;
 	height: 40px;
+}
+.infoBtn {
+	border-radius: 50%;
+	height: 35px;
+	width: 35px;
+	padding-top: 3px;
+	position: relative;
+	top: -170px;
+	left: -65px;
 }
 table {
 	border-spacing: 5px;
@@ -94,6 +123,14 @@ table {
 	background-color: #dee2e6;
 	border-radius: 0rem 0rem .25rem .25rem;
 }
-#food-modal {
-	direction: rtl;
+
+#food-details {
+	font-size: 24px;
+}
+
+#modal-pic {
+	height: 175px;
+	width: 175px;
+	position: relative;
+	left: 142px;
 }
