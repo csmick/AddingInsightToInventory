@@ -129,3 +129,12 @@ function removeItemfromCart(id){
 dragula([document.getElementById("grid-area"), document.getElementById("cart-items")], {
   copy: true
 });
+
+dragula([document.getElementById("cart-table"), document.getElementById("trashcan")])
+  .on('drop', function (el) {
+    console.log("delete triggered");
+	console.log(el);
+	el.remove()
+	var itemId = el.id;
+	//delete cart[id];
+  });
