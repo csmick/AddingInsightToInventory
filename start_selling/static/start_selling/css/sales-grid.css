@@ -97,6 +97,7 @@ table {
 	border-radius: .25rem;
 	padding: 0px;
 	margin-bottom: 50px;
+	height: 620px;
 }
 #cart-total {
 	background-color: #dee2e6;

@@ -70,7 +70,17 @@ function updateCartTable2(id, AlreadyInCart) {
 		console.log(item);
 	}
 }
-
+function changeTotal() {
+	var totalElement = document.getElementById("total-num");
+	var totalCost = 0;
+	for (id in cart){
+		var item = mydata[id];
+		var quant = cart[id];
+		var cost = quant * item.unit_price;
+		totalCost = totalCost + cost;
+	}
+	totalElement.innerHTML = "$"+Number(totalCost).toFixed(2)
+}
 function updateCartTable(id, AlreadyInCart){
 	var table = document.getElementById('cart-table');
 	var item = mydata[id];
@@ -102,6 +112,7 @@ function updateCartTable(id, AlreadyInCart){
 		var row_id = "cart-item-" + id;
 		row.id = row_id;
 	}
+	changeTotal();
 }
 function removeItemfromCart(id){
 	var cartTable = document.getElementById('cart-table');
