@@ -46,7 +46,7 @@ body {
 	border: 1px solid black;
 }
 .up-btn {
-	height: 22px;
+	height: 21px;
 	width: 35px;
 	position: relative;
 	top: -9px;
@@ -55,9 +55,10 @@ body {
 	padding-top: 0px;
 	padding-left: 10px;
 	border-top-right-radius: .25rem;
+	z-index: 2;
 }
 .down-btn {
-	height: 20px;
+	height: 21px;
 	width: 35px;
 	position: relative;
 	top: 10px;
