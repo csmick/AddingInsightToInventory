@@ -88,9 +88,14 @@ function updateCartTable(id, AlreadyInCart){
 	var total = quant * item.unit_price;
 	if(AlreadyInCart) {
 		var itemRow = document.getElementById('cart-item-'+id);
-		itemRow.cells[4].innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><i class=\"fas fa-angle-down\"></i></button>";
-		itemRow.cells[6].innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
-		
+		if(quant > 0) {
+			itemRow.cells[4].innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><i class=\"fas fa-angle-down\"></i></button>";
+			itemRow.cells[6].innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
+		} else {
+			//if quantity gets to 0 remove the row from table and from cart dictionary
+			itemRow.remove();
+			delete cart[id];
+		}
 	} else {
 		var row = table.insertRow(-1);
 		var c1 = row.insertCell(0); //img
