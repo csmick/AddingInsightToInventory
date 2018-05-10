@@ -1,6 +1,20 @@
 var mydata = {};
 var cart = {};
 
+document.addEventListener("dragstart", function(event) {
+	event.dataTransfer.setData("text/uri-list", imageurl);
+	event.dataTransfer.setData("text/plain", imageurl);
+	event.target.style.opacity = "0.4";
+	console.log("dragging");
+});
+
+document.addEventListener("dragenter", function(event) {
+    if ( event.target.className == "droptarget" ) {
+        event.target.style.border = "3px dotted red";
+		console.log("target reached");
+    }
+});
+
 function displayDate() {
     var title = document.getElementById("session-title");
 	var date = new Date();
@@ -11,8 +25,9 @@ function displayDate() {
 	title.innerHTML = "Sales Session " + dateString;
 }
 function populateData(items) {
+	sessionStorage.clear();
     items.forEach(function(item) {
-        console.log(item)
+        //console.log(item)
         var obj = {
             id:item.pk,
             item_name:item.fields.name,
@@ -45,13 +60,21 @@ function populateModal(id) {
 	}
 }
 
+function dragProduce(event, id) {
+	event.target.style.opacity = "0.4";
+	console.log("started dragging an item");
+	increaseItemQuant(id);
+}
 function increaseItemQuant(id) {
 	var AlreadyInCart;
 	if(!(id in cart)) {
 		cart[id] = 1;
+		sessionStorage.setItem(id, 1);
 		AlreadyInCart = false;
 	} else {
 		cart[id] = cart[id] + 1;
+		var new_quant = Number(sessionStorage.getItem(id)) + 1;
+		sessionStorage.setItem(id, new_quant);
 		AlreadyInCart = true;
 	}
 	updateCartTable(id, AlreadyInCart)
@@ -59,17 +82,11 @@ function increaseItemQuant(id) {
 
 function decreaseItemQuant(id) {
 	cart[id] = cart[id] - 1;
+	var new_quant = Number(sessionStorage.getItem(id)) - 1;
+	sessionStorage.setItem(id, new_quant);
 	updateCartTable(id, true);
 }
 
-function updateCartTable2(id, AlreadyInCart) {
-	var table = document.getElementById('cart-table');
-	var item = mydata[id];
-	var quant = cart[id];
-	if(AlreadyInCart) {
-		console.log(item);
-	}
-}
 function changeTotal() {
 	var totalElement = document.getElementById("total-num");
 	var totalCost = 0;
@@ -95,6 +112,7 @@ function updateCartTable(id, AlreadyInCart){
 			//if quantity gets to 0 remove the row from table and from cart dictionary
 			itemRow.remove();
 			delete cart[id];
+			sessionStorage.removeItem(id);
 		}
 	} else {
 		var row = table.insertRow(-1);
@@ -126,10 +144,23 @@ function removeItemfromCart(id){
 	cartTable.deleteRow(i);
 }
 
-dragula([document.getElementById("grid-area"), document.getElementById("cart-items")], {
-  copy: true
-});
-
+function dragEnter(event){
+	if(event.target.className == "dropzone"){
+		console.log("item dropped in cart");
+	}
+}
+//dragula([document.getElementsByClassName("produce-img"), document.getElementById("cart-items")], {
+//  copy: true
+//});
+/* dragula([document.getElementById("grid-area"), document.getElementById("cart-items")])
+  .on('drop', function (el) {
+    console.log("item dragged to cart");
+	console.log(el);
+	//el.remove()
+	var itemId = el.id;
+	console.log(itemId);
+	//delete cart[id];
+  });
 dragula([document.getElementById("cart-table"), document.getElementById("trashcan")])
   .on('drop', function (el) {
     console.log("delete triggered");
@@ -137,4 +168,4 @@ dragula([document.getElementById("cart-table"), document.getElementById("trashca
 	el.remove()
 	var itemId = el.id;
 	//delete cart[id];
-  });
+  }); */

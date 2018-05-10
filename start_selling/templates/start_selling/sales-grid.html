@@ -31,12 +31,13 @@
 
       <h1 id="session-title" class="my-4 text-center text-lg-left">Sale Session</h1>
 		<div class="row text-center text-lg-left">
+			<!-- Grid -->
 		    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-7" id="scroll-area">
 			    <div class="row" id="grid-area">
                    {% for item in qs_items %}
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 							<a class="d-block mb-4 h-100 produce-card">
-								<img class="img-fluid img-thumbnail produce-img" onclick="increaseItemQuant({{ item.pk }})" src="{% static item.image.url %}">
+								<img class="img-fluid img-thumbnail produce-img" draggable="true" onclick="increaseItemQuant({{ item.pk }})" ondrag="dragProduce(event, {{ item.pk }})" src="{% static item.image.url %}">
 								<button class="btn btn-default infoBtn" data-toggle="modal" data-target="#detailModal" onclick="populateModal({{ item.pk }})"><i class="fas fa-info"></i></button>
 								<p class="grid-text">{{ item.name }}</p>
 							</a>
@@ -44,17 +45,18 @@
 				   {% endfor %} 
                 </div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5" id="cart">
+			<!-- Cart -->
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
 				<div id="cart-total">
 					<h3 id="total-num" class="text-center">$0.00</h3>
 				</div>
-				<div id="cart-items">
-					<table id="cart-table">
+				<div id="cart-items" class="dropzone">
+					<table id="cart-table" ondragenter="dragEnter(event)" class="dropzone">
 						<!-- fill in with javascript -->
 					</table>
 				</div>
 				<div id="trashcan"><i class="far fa-trash-alt"></i></div>
-				<button class="btn btn-default" id="checkout-btn">Checkout</button>
+				<button class="btn btn-default" id="checkout-btn" href="{% url 'checkout' %}">Checkout</button>
 			</div>
         </div>
 		<!-- Modal -->

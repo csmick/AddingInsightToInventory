@@ -19,3 +19,6 @@ def sales_grid(request):
         item.image = static(item.image.url)
     data = {'qs_items':items, 'json_items':serializers.serialize('json', items)}
     return render(request, 'start_selling/sales-grid.html', context=data)
+
+def checkout(request):
+    return render(request, 'start_selling/checkout.html')
