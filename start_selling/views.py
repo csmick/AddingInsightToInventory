@@ -22,3 +22,9 @@ def sales_grid(request):
 
 def checkout(request):
     return render(request, 'start_selling/checkout.html')
+
+def past_sales(request):
+    soldItems = SoldItem.objects.all()
+    transactions = Transaction.objects.all()
+    data = {'soldItems':serializers.serialize('json', soldItems), 'transactions':serializers.serialize('json', transactions)}
+    return render(request, 'start_selling/past-sales.html', context=data)

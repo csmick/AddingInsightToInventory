@@ -2,24 +2,26 @@ var mydata = new Array;
 //var cart = {}
 
 		
-function populateGrid(data) {
-//	$.get('./sample_sales.csv', function(data) {
-		var head = data.split("\n");
-		for(var i = 1; i < head.length-1; i++){
-			line = head[i].split(",");
-			var obj = {
-				id:line[0],
-				date:line[1],
-				produce_name:line[2],
-				unit_price:line[3],
-				quantity:line[4],
+function populateGrid(soldItemsArr, transactionsArr) {
+        transactions = {};
+        transactionsArr.forEach(function(t) {
+            transactions[t.pk] = t.fields;
+        });
+        console.log(soldItemsArr);
+        console.log(transactions);
+        soldItemsArr.forEach(function(item) {
+            var obj = {
+				id:item.pk,
+				date:transactions[item.fields.transaction].date,
+				produce_name:item.fields.name,
+				total_cost:item.fields.total_cost,
+				quantity:item.fields.quantity,
 			};
 			mydata.push(obj);
-		}
+        });
 		console.log(mydata);
 		populateTable(mydata);
 		populateGraph(mydata);
-//	});
 };
 
 //thank you stack overflow
@@ -28,7 +30,7 @@ function populateTable(data) {
 	for(var i in data) {
 		console.log(i);
 		html +='<tr>';
-		html += '<td>'+data[i].produce_name + '</td><td>'+data[i].quantity+'</td><td>'+data[i].unit_price+'</td>';
+		html += '<td>'+data[i].produce_name + '</td><td>'+data[i].quantity+'</td><td>'+data[i].total_cost+'</td>';
 		html +='</tr>'; 
 	}
 	var table = document.getElementById("tBody");
@@ -74,15 +76,6 @@ function getChartData(data) {
 
 	return obj;
 }
-
-$.ajax({
-  url:  './sample_sales.csv',
-  dataType:  'text',
-  beforeSend:  function(xhr) {
-                 xhr.overrideMimeType("text/plain");
-               }
-}).done(populateGrid);
-
 
 /*function updateCartTable(id){
 	var table = document.getElementById('cart-table');
