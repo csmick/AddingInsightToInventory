@@ -27,13 +27,13 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 text-center">
-                        <a href="{% url 'sales' %}" class="text-center">
+                        <a href="{% url 'sell' %}" class="text-center">
                             <img class="rounded-circle img-fluid" src="{% static 'start_selling/images/dollar-sign.png' %}" alt="">
                         </a>
                         <h2>Start Selling</h3>
                     </div>
                     <div class="col-xs-12 col-sm-6 text-center">
-                        <a href="./past-sales.html" class="text-center">
+                        <a href="{% url 'sales' %}" class="text-center">
                             <img class="rounded-circle img-fluid" src="{% static 'start_selling/images/past-sales.png' %}" alt="">
                         </a>
                         <h2>Past Sales</h3>

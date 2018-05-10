@@ -19,3 +19,9 @@ def sales_grid(request):
         item.image = static(item.image.url)
     data = {'qs_items':items, 'json_items':serializers.serialize('json', items)}
     return render(request, 'start_selling/sales-grid.html', context=data)
+
+def past_sales(request):
+    soldItems = SoldItem.objects.all()
+    transactions = Transaction.objects.all()
+    data = {'soldItems':serializers.serialize('json', soldItems), 'transactions':serializers.serialize('json', transactions)}
+    return render(request, 'start_selling/past-sales.html', context=data)

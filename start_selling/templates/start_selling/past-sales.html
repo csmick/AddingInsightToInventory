@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +13,15 @@
     <title>Past Sales</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'start_selling/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <!--<link href="css/thumbnail-gallery.css" rel="stylesheet">-->
-    <link href="css/past-sales.css" rel="stylesheet">
+    <!-- <link href="css/thumbnail-gallery.css" rel="stylesheet"> -->
+    <link href="{% static 'start_selling/css/app.css' %}" rel="stylesheet">
+    <link href="{% static 'start_selling/css/past-sales.css' %}" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="populateGrid({{soldItems}}, {{transactions}})">
 <div class="bootstrap-iso">
  <!--<div class="container-fluid">
   <div class="row">
@@ -103,10 +106,10 @@
     </footer> -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'start_selling/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'start_selling/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="scripts/past-sales.js"></script>
+    <script src="{% static 'start_selling/scripts/past-sales.js' %}"></script>
   </body>
 
 </html>
