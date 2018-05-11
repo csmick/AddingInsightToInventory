@@ -92,11 +92,3 @@ function changeTotal() {
 	var totalElement = document.getElementById("total-text");
 	totalElement.innerHTML = "$"+Number(grandTotal).toFixed(2)
 }
-function backFunc() {
-	sessionStorage.doClear = false;
-	history.go(-1);
-}
-function doneFunc() {
-	sessionStorage.doClear = true;
-	history.go(-1);
-}

@@ -24,12 +24,8 @@ function displayDate() {
 	var dateString = month + "/" + day + "/" + year;
 	title.innerHTML = "Sales Session " + dateString;
 }
-function populateData(items) {
-	if(sessionStorage.doClear == "true"){
-		sessionStorage.clear();
-		window.location.reload(true);
-	}
-    items.forEach(function(item) {
+function populateData(items, doClear) {
+	items.forEach(function(item) {
         //console.log(item)
         var obj = {
             id:item.pk,
@@ -41,6 +37,43 @@ function populateData(items) {
         }
         mydata[item.pk] = obj;
     });
+	console.log(doClear);
+	if(doClear == 1){
+		sessionStorage.clear();
+	} else {
+		console.log("no reload");
+		for(thing in sessionStorage){
+			var item = mydata[Number(thing)];
+			if(item){
+				console.log(item);
+				var table = document.getElementById('cart-table');
+				var quant = sessionStorage[item.id];
+				var total = quant * item.unit_price;
+				
+				var row = table.insertRow(-1);
+				var c1 = row.insertCell(0); //img
+				var c2 = row.insertCell(1); //produce name
+				var c3 = row.insertCell(2); //unit price
+				var c4 = row.insertCell(3); //times
+				var c5 = row.insertCell(4); //quantity
+				var c6 = row.insertCell(5); //equals
+				var c7 = row.insertCell(6); //total price
+					
+				c1.innerHTML = "<img class=\"cart-item-img\" src=\""+item.img_src+"\">";
+				c2.innerHTML = item.item_name;
+				c3.innerHTML = "$"+Number(item.unit_price).toFixed(2);
+				c4.innerHTML = "x";
+				c5.innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+item.id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+item.id+")\"><i class=\"fas fa-angle-down\"></i></button>";
+				c6.innerHTML = "=";
+				c7.innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
+					
+				var row_id = "cart-item-" + item.id;
+				row.id = row_id;
+			} else {
+				console.log("did not find a produce item");
+			}
+		}
+	}
 	displayDate();
 }
 

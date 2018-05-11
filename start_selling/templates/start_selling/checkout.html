@@ -42,8 +42,8 @@
 				<h2 id="total-text">$0.00</h2>
 			</div>
 		</div>
-		<a onclick="backFunc()" class="btn btn-default" role="button" id="backBtn">Back</a>
-		<a onclick="doneFunc()" class="btn btn-default" role="button" id="doneBtn">Done</a>
+		<a href="{% url 'sell' %}?doClear=0" class="btn btn-default" role="button" id="backBtn">Back</a>
+		<a href="{% url 'sell' %}?doClear=1" class="btn btn-default" role="button" id="doneBtn">Done</a>
 	<!-- Bootstrap core JavaScript -->
     <script src="{% static 'start_selling/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'start_selling/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
