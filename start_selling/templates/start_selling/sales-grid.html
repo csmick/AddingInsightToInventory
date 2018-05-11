@@ -78,13 +78,14 @@
 					</tr>
 					<tr>
 						<td><b>Quantity</b></td>
-						<td><input value="0"></td>
+						<td><input id="input-quant" value="0"></td>
 					</tr>
 				</table>
+				<input id="inputId">
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" id="rmBtn" class="btn btn-default disabled modalBtn">Remove</button>
-				<button type="button" class="btn btn-default modalBtn">Add to Cart</button>
+				<button onclick="removeFromModal()" type="button" id="rmBtn" class="btn btn-default disabled modalBtn" data-dismiss="modal">Remove</button>
+				<button onclick="addFromModal()" type="button" id="addBtn" class="btn btn-default modalBtn" data-dismiss="modal">Update Cart</button>
 			  </div>
 			</div>
 		  </div>

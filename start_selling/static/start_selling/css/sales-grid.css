@@ -158,3 +158,6 @@ table {
 	width: 100px;
 	right: 0px;
 }
+#inputId {
+	visibility: hidden;
+}
