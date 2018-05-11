@@ -1,4 +1,5 @@
 var mydata = {};
+var grandTotal = 0;
 
 function populateData(items){
 	console.log(sessionStorage);
@@ -31,6 +32,7 @@ function populateCart(){
 			console.log(item);
 			var quant = sessionStorage[item.id];
 			var total = quant * item.unit_price;
+			grandTotal = grandTotal + total;
 			
 			var row = table.insertRow(-1);
 			var c1 = row.insertCell(0); //img
@@ -55,4 +57,38 @@ function populateCart(){
 			console.log("not a produce item");
 		}
 	}
+	changeTotal();
+}
+function increaseItemQuant(id) {
+	var new_quant = Number(sessionStorage.getItem(id)) + 1;
+	sessionStorage.setItem(id, new_quant);
+	grandTotal = grandTotal + Number(mydata[id].unit_price);
+	updateCart(id, new_quant);
+}
+
+function decreaseItemQuant(id) {
+	var new_quant = Number(sessionStorage.getItem(id)) - 1;
+	sessionStorage.setItem(id, new_quant);
+	grandTotal = grandTotal - Number(mydata[id].unit_price);
+	updateCart(id, new_quant);
+}
+
+function updateCart(id, quant) {
+	var item = mydata[id];
+	var total = quant * item.unit_price;
+	var itemRow = document.getElementById('cart-item-'+id);
+	if(quant > 0) {
+		itemRow.cells[4].innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><i class=\"fas fa-angle-down\"></i></button>";
+		itemRow.cells[6].innerHTML = "<b>$"+Number(total).toFixed(2)+"</b>";
+	} else {
+		//if quantity gets to 0 remove the row from table and from cart dictionary
+		itemRow.remove();
+		delete cart[id];
+		sessionStorage.removeItem(id);
+	}
+	changeTotal();
+}
+function changeTotal() {
+	var totalElement = document.getElementById("total-text");
+	totalElement.innerHTML = "$"+Number(grandTotal).toFixed(2)
 }
