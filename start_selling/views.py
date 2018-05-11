@@ -21,7 +21,12 @@ def sales_grid(request):
     return render(request, 'start_selling/sales-grid.html', context=data)
 
 def checkout(request):
-    return render(request, 'start_selling/checkout.html')
+    items = Item.objects.all()
+    static_items = Item.objects.all()
+    for item in static_items:
+        item.image = static(item.image.url)
+    data = {'qs_items':items, 'json_items':serializers.serialize('json', items)}
+    return render(request, 'start_selling/checkout.html', context=data)
 
 def past_sales(request):
     soldItems = SoldItem.objects.all()
