@@ -25,7 +25,10 @@ function displayDate() {
 	title.innerHTML = "Sales Session " + dateString;
 }
 function populateData(items) {
-	sessionStorage.clear();
+	if(sessionStorage.doClear == "true"){
+		sessionStorage.clear();
+		window.location.reload(true);
+	}
     items.forEach(function(item) {
         //console.log(item)
         var obj = {
@@ -97,7 +100,8 @@ function changeTotal() {
 function updateCartTable(id, AlreadyInCart){
 	var table = document.getElementById('cart-table');
 	var item = mydata[id];
-	var quant = cart[id];
+	//var quant = cart[id];
+	var quant = sessionStorage[id];
 	var total = quant * item.unit_price;
 	if(AlreadyInCart) {
 		var itemRow = document.getElementById('cart-item-'+id);
