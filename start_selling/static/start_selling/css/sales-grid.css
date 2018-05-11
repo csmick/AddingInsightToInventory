@@ -85,6 +85,9 @@ body {
 	top: -170px;
 	left: -65px;
 }
+.produce-name {
+	min-width: 65px;
+}
 table {
 	border-spacing: 5px;
 	width: 100%	

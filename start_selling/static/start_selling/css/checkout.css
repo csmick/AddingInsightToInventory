@@ -2,6 +2,10 @@
 	height: 100px;
 	width: 100px;
 }
+.down-btn {
+	top: 10px !important;
+	left: -35px !important;
+}
 tr {
 	font-size: 20px;
 }

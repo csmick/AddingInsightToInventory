@@ -61,6 +61,7 @@ function populateData(items, doClear) {
 					
 				c1.innerHTML = "<img class=\"cart-item-img\" src=\""+item.img_src+"\">";
 				c2.innerHTML = item.item_name;
+				c2.className = "produce-name";
 				c3.innerHTML = "$"+Number(item.unit_price).toFixed(2);
 				c4.innerHTML = "x";
 				c5.innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+item.id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+item.id+")\"><i class=\"fas fa-angle-down\"></i></button>";
@@ -159,6 +160,7 @@ function updateCartTable(id, AlreadyInCart){
 		
 		c1.innerHTML = "<img class=\"cart-item-img\" src=\""+item.img_src+"\">";
 		c2.innerHTML = item.item_name;
+		c2.className = "produce-name";
 		c3.innerHTML = "$"+Number(item.unit_price).toFixed(2);
 		c4.innerHTML = "x";
 		c5.innerHTML = "<input class=\"cart-quant\" value=\""+quant+"\"/><button class=\"btn btn-default up-btn\" onclick=\"increaseItemQuant("+id+")\"><i class=\"fas fa-angle-up\"></i></button><button class=\"btn btn-default down-btn\" onclick=\"decreaseItemQuant("+id+")\"><i class=\"fas fa-angle-down\"></i></button>";
